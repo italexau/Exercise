@@ -1,0 +1,45 @@
+Test 1. Incorrect command
+Input:  Undo
+Output: The following commands are allowed: PLACE X,Y,Direction(NORTH, SOUTH, WEST, EAST), MOVE, RIGHT, LEFT, REPORT. PLACE should be the first command. Enter EXIT to stop game.
+	Incorrect input, please try again
+	
+Test 2. Coordinates are not numbers
+Input:  Place d,4,north
+Output: Coordinates should be numeric, please try again
+	
+Test 3. Coordinates are negative or out of out of the board
+Input:  Place -8,8,south
+Output: Numbers can be 0 to 4 for X and 0 to 4 for Y only, please try again
+
+Test 4. Coordinates have incorrect format
+Input:  Place 4.4.west
+Output: Coordinates should be entered in the following format X,Y,Facing, please try again
+
+Test 5. Robot was not placed on the board, the command is correct
+Input:  Move
+Output: PLACE should be the first command. The current input will be ignored
+	Please enter next command for Robot:
+	
+Test 6.  Robot placed into position 0,0,South. Next Move command will cause fall
+Input:  Place 0,0,South
+        Move
+Output: This movement is not allowed and will be ignored
+	Please enter next command for Robot:
+	
+Test 7. Robot placed into position 0,0,South then reports. Then placed into 4,4,West and reports
+Input:  Place 0,0,South
+        Report
+        Place 4,4,West
+        Report
+Output: 0,0,SOUTH
+	4,4,WEST
+	
+Test 8. Robot placed into position 2,2,North. Then it makes 2 steps, turns right, makes 1 step, turns left and reports
+Input:  Place 2,2,North
+	Move
+	Move
+	Right
+	Move
+	Left
+	Report
+Output: 3,4,North
